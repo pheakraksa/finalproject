@@ -95,19 +95,34 @@
                 display: block;
         }
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .dropdown-content1, .dropdown-content2 {
-                position: static;
-                min-width: 100%;
-            }
-            .gallery-container {
-                flex-direction: column;
-                align-items: center;
-            }
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
         }
+
+        .menu-toggle {
+            display: flex;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links a, .dropdown {
+            width: 100%;
+        }
+
+        .dropdown-content1, .dropdown-content2 {
+            position: static;
+            min-width: 100%;
+        }
+    }
         #footer {
             background-color: #001a66;
             color: white;
@@ -125,31 +140,39 @@
             <img src="image/banner.jpg" alt="Image" style="width: 100%;">
         </marquee>
     </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="New.html" target="_blank">News</a>
-        <a href="Faculry.html" target="_blank">Faculry members</a>
-        <a href="Training.html" target="_blank">Professional Training</a>
-        <a href="Video.html" target="_blank">Video CoST</a>
-        <div class="dropdown">
-            <a href="#">Bachelor Programs</a>
-            <div class="dropdown-content1">
-                <a href="IT.html" target="_blank"> Information Technology <i style="color: blue;">Since 2003</i></a>
-                <a href="CS.html"target="_blank"> Computer Science <i style="color: blue;">Since 2003</i></a>
-                <a href="ETC.html"target="_blank"> Electronics and Telecommunications <i style="color: blue;">Since 2003</i></a>
-                <a href="GDM.html"target="_blank"> Graphic Design And Multimedia <i style="color: red;">New 2025</i></a>
-                <a href="BMIT.html"target="_blank">Business Management Information Technology <i style="color: red;">New 2025</i></a>
-                <a href="NECS.html"target="_blank">Network Engineering and Cyber Security <i style="color: red;">New 2025</i></a>
-                <a href="DSAI.html"target="_blank">Data Science and Artificial Intelligence <i style="color: red;">New 2025</i></a>
-            </div>
+   <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="dropdown">
-            <a href="#">Computer Labs</a>
-            <div class="dropdown-content2">
-                <a href="Lab1.html"target="_blank"> Multimedia Lab</a>
-                <a href="Lab2.html"target="_blank"> E-learning Lab</a>
-                <a href="Lab3.html"target="_blank"> Networking Lab</a>
-                <a href="Lab4.html"target="_blank">IT Center Lab</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="New.html" target="_blank">News</a>
+            <a href="Faculry.html" target="_blank">Faculry members</a>
+            <a href="Training.html" target="_blank">Professional Training</a>
+            <a href="Video.html" target="_blank">Video CoST</a>
+    
+            <div class="dropdown">
+                <a href="#">Bachelor Programs</a>
+                <div class="dropdown-content1">
+                    <a href="IT.html" target="_blank">Information Technology <i style="color: blue;">Since 2003</i></a>
+                    <a href="CS.html"target="_blank">Computer Science <i style="color: blue;">Since 2003</i></a>
+                    <a href="ETC.html"target="_blank">Electronics and Telecommunications <i style="color: blue;">Since 2003</i></a>
+                    <a href="GDM.html"target="_blank">Graphic Design And Multimedia <i style="color: red;">New 2025</i></a>
+                    <a href="BMIT.html"target="_blank">Business Management Information Technology <i style="color: red;">New 2025</i></a>
+                    <a href="NECS.html"target="_blank">Network Engineering and Cyber Security <i style="color: red;">New 2025</i></a>
+                    <a href="DSAI.html"target="_blank">Data Science and Artificial Intelligence <i style="color: red;">New 2025</i></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Computer Labs</a>
+                <div class="dropdown-content2">
+                    <a href="Lab1.html"target="_blank">Multimedia Lab</a>
+                    <a href="Lab2.html"target="_blank">E-learning Lab</a>
+                    <a href="Lab3.html"target="_blank">Networking Lab</a>
+                    <a href="Lab4.html"target="_blank">IT Center Lab</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -217,6 +240,11 @@
     <div id="footer">
         <img src="image/uc.jpg" width="50" height="50">Copyright © University of Cambodia
     </div>
-
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

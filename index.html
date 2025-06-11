@@ -17,19 +17,6 @@
             justify-content: left;
             align-items: center;
         }
-        nav a, .dropdown > a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            transition: background-color 0.3s;
-            height: 100%;
-            white-space: nowrap;
-        }
-        nav a:hover, .dropdown > a:hover {
-            background-color: green;
-            color: white;
-        }
         div.gallery-container {
                 display: flex;
                 justify-content: center;
@@ -94,47 +81,73 @@
         .dropdown:hover .dropdown-content2  {
                 display: block;
         }
-         .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 15px;
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a, .dropdown > a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .dropdown > a:hover {
+            background-color: green;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 15px;
+        }
+
         .menu-toggle span {
             background: white;
             height: 3px;
             margin: 4px 0;
             width: 25px;
         }
+
+        /* --- Mobile Styles --- */
         @media (max-width: 768px) {
-        nav {
-            flex-direction: column;
-            align-items: flex-start;
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #001a66;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a, .dropdown > a {
+                width: 100%;
+                padding: 10px 20px;
+            }
+
+            .dropdown-content1,
+            .dropdown-content2 {
+                position: static;
+                width: 100%;
+            }
         }
 
-        .menu-toggle {
-            display: flex;
-        }
-
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .nav-links.show {
-            display: flex;
-        }
-
-        .nav-links a, .dropdown {
-            width: 100%;
-        }
-
-        .dropdown-content1, .dropdown-content2 {
-            position: static;
-            min-width: 100%;
-        }
-    }
         #footer {
             background-color: #001a66;
             color: white;
@@ -152,42 +165,44 @@
             <img src="image/banner.jpg" alt="Image" style="width: 100%;">
         </marquee>
     </div>
-   <nav>
+    <nav>
+    <div class="nav-container">
         <div class="menu-toggle" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="New.html" target="_blank">News</a>
             <a href="Faculry.html" target="_blank">Faculry members</a>
             <a href="Training.html" target="_blank">Professional Training</a>
             <a href="Video.html" target="_blank">Video CoST</a>
-    
             <div class="dropdown">
                 <a href="#">Bachelor Programs</a>
                 <div class="dropdown-content1">
                     <a href="IT.html" target="_blank">Information Technology <i style="color: blue;">Since 2003</i></a>
-                    <a href="CS.html"target="_blank">Computer Science <i style="color: blue;">Since 2003</i></a>
-                    <a href="ETC.html"target="_blank">Electronics and Telecommunications <i style="color: blue;">Since 2003</i></a>
-                    <a href="GDM.html"target="_blank">Graphic Design And Multimedia <i style="color: red;">New 2025</i></a>
-                    <a href="BMIT.html"target="_blank">Business Management Information Technology <i style="color: red;">New 2025</i></a>
-                    <a href="NECS.html"target="_blank">Network Engineering and Cyber Security <i style="color: red;">New 2025</i></a>
-                    <a href="DSAI.html"target="_blank">Data Science and Artificial Intelligence <i style="color: red;">New 2025</i></a>
+                    <a href="CS.html" target="_blank">Computer Science <i style="color: blue;">Since 2003</i></a>
+                    <a href="ETC.html" target="_blank">Electronics and Telecommunications <i style="color: blue;">Since 2003</i></a>
+                    <a href="GDM.html" target="_blank">Graphic Design And Multimedia <i style="color: red;">New 2025</i></a>
+                    <a href="BMIT.html" target="_blank">Business Management Information Technology <i style="color: red;">New 2025</i></a>
+                    <a href="NECS.html" target="_blank">Network Engineering and Cyber Security <i style="color: red;">New 2025</i></a>
+                    <a href="DSAI.html" target="_blank">Data Science and Artificial Intelligence <i style="color: red;">New 2025</i></a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#">Computer Labs</a>
                 <div class="dropdown-content2">
-                    <a href="Lab1.html"target="_blank">Multimedia Lab</a>
-                    <a href="Lab2.html"target="_blank">E-learning Lab</a>
-                    <a href="Lab3.html"target="_blank">Networking Lab</a>
-                    <a href="Lab4.html"target="_blank">IT Center Lab</a>
+                    <a href="Lab1.html" target="_blank">Multimedia Lab</a>
+                    <a href="Lab2.html" target="_blank">E-learning Lab</a>
+                    <a href="Lab3.html" target="_blank">Networking Lab</a>
+                    <a href="Lab4.html" target="_blank">IT Center Lab</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+
     <p>ស្វាគមន៍មកកាន់មហាវិទ្យាល័យវិទ្យាសាស្ត្រ និងបច្ចេកវិទ្យានៃសាកលវិទ្យាល័យកម្ពុជា។ សម្រាប់ប្អូនៗសិស្សានុសិស្ស ដែលមានបំណងចង់បន្តការសិក្សាថ្នាក់បរិញ្ញាបត្ររង និងថ្នាក់បរិញ្ញាបត្រ។ សូមចុះឈ្មោះជាមួយយើងឥឡូវនេះ ឬអាចអញ្ជើញមកកាន់សាកលវិទ្យាល័យផ្ទាល់ក៏បាន។</p>
     <p>Welcome to College of Science and Technology of The University of Cambodia. For everyone who wishes to pursue for any AA and BA degrees of the study programs, please register now or visit the campus of The University of Cambodia.</p>
     <h2 style="text-align: center;">Studying Activities in CoST</h2>
@@ -253,10 +268,10 @@
         <img src="image/uc.jpg" width="50" height="50">Copyright © University of Cambodia
     </div>
     <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('show');
-        }
-    </script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
 </body>
 </html>

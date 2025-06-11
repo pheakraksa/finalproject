@@ -94,6 +94,20 @@
         .dropdown:hover .dropdown-content2  {
                 display: block;
         }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .dropdown-content1, .dropdown-content2 {
+                position: static;
+                min-width: 100%;
+            }
+            .gallery-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
         #footer {
             background-color: #001a66;
             color: white;

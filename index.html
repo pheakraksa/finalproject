@@ -56,20 +56,25 @@
             position: absolute;
             background-color: #001a66;
             min-width: 400px;
+            max-width: 90vw; /* Responsive max width */
             z-index: 10;
+            overflow-wrap: break-word;
         }
         .dropdown-content2 {
             display: none;
             position: absolute;
             background-color: #001a66;
             min-width: 200px;
+            max-width: 90vw; /* Responsive max width */
             z-index: 10;
+            overflow-wrap: break-word;
         }
         .dropdown-content1 a, .dropdown-content2 a {
             color: white;
             text-decoration: none;
             display: block;
             padding: 10px 20px;
+            white-space: normal; /* allow wrapping inside dropdown links */
         }
         .dropdown-content1 a:hover, .dropdown-content2 a:hover {
             background-color: green;
@@ -89,9 +94,9 @@
         }
 
         .nav-links {
-            display: flex !important; /* always show */
+            display: flex !important; /* always visible */
             align-items: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap; /* wrap menu items on small screens */
             background: #001a66;
         }
 
@@ -100,12 +105,26 @@
             text-decoration: none;
             padding: 15px 20px;
             display: block;
-            white-space: nowrap;
+            white-space: nowrap; /* prevent menu text wrapping */
             transition: background-color 0.3s;
         }
 
         .nav-links a:hover, .dropdown > a:hover {
             background-color: green;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .nav-links a, .dropdown > a {
+                padding: 10px 12px; /* smaller padding to fit better */
+                font-size: 14px;
+            }
+            /* Allow dropdown menus to scale better on small screens */
+            .dropdown-content1, .dropdown-content2 {
+                min-width: auto;
+                max-width: 90vw;
+                white-space: normal;
+            }
         }
 
         #footer {

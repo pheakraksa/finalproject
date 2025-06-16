@@ -18,45 +18,25 @@
 
     .nav-container {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-    }
-
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 15px;
-    }
-
-    .menu-toggle span {
-      background: white;
-      height: 3px;
-      margin: 4px 0;
-      width: 25px;
+      justify-content: center;
+      padding: 10px;
     }
 
     .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background: #001a66;
-      align-items: flex-start;
-    }
-
-    .nav-links.show {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
 
     .nav-links a,
     .dropdown > a {
       color: white;
       text-decoration: none;
-      padding: 15px 20px;
+      padding: 10px 15px;
       display: block;
       transition: background-color 0.3s;
-      white-space: nowrap;
     }
 
     .nav-links a:hover,
@@ -66,68 +46,33 @@
 
     .dropdown {
       position: relative;
-      width: 100%;
     }
 
     .dropdown-content1,
     .dropdown-content2 {
       display: none;
-      flex-direction: column;
-      width: 100%;
+      position: absolute;
       background-color: #001a66;
+      min-width: 200px;
+      z-index: 1;
     }
 
     .dropdown:hover .dropdown-content1,
     .dropdown:hover .dropdown-content2 {
-      display: flex;
+      display: block;
     }
 
     .dropdown-content1 a,
     .dropdown-content2 a {
       color: white;
+      padding: 10px 15px;
       text-decoration: none;
-      padding: 10px 20px;
       display: block;
     }
 
     .dropdown-content1 a:hover,
     .dropdown-content2 a:hover {
       background-color: green;
-    }
-
-    @media (min-width: 1025px) {
-      .nav-container {
-        flex-wrap: nowrap;
-      }
-
-      .menu-toggle {
-        display: none;
-      }
-
-      .nav-links {
-        display: flex !important;
-        flex-direction: row;
-        align-items: center;
-        justify-content: left;
-        width: auto;
-      }
-
-      .dropdown {
-        width: auto;
-      }
-
-      .dropdown-content1,
-      .dropdown-content2 {
-        position: absolute;
-        display: none;
-        z-index: 1;
-        min-width: 200px;
-      }
-
-      .dropdown:hover .dropdown-content1,
-      .dropdown:hover .dropdown-content2 {
-        display: block;
-      }
     }
 
     #footer {
@@ -139,7 +84,6 @@
       margin-top: 20px;
     }
 
-    /* Extra content styling kept as-is */
     .gallery-container {
       display: flex;
       justify-content: center;
@@ -151,7 +95,6 @@
     .gallery {
       border: 2px solid gold;
       width: 335px;
-      transition: border 0.3s;
     }
 
     .gallery:hover {
@@ -174,6 +117,19 @@
       color: white;
       font-size: 25px;
     }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dropdown-content1,
+      .dropdown-content2 {
+        position: static;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -186,12 +142,7 @@
 
   <nav>
     <div class="nav-container">
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links" id="navLinks">
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="New.html" target="_blank">News</a>
         <a href="Faculry.html" target="_blank">Faculty Members</a>
@@ -292,11 +243,5 @@
   <div id="footer">
     <img src="image/uc.jpg" width="50" height="50" alt="UC Logo"> Copyright © University of Cambodia
   </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
-    }
-  </script>
 </body>
 </html>
